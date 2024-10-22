@@ -35,10 +35,13 @@ public class TransferServiceUnitTests {
     given(accountRepository.findById(destination.getId()))
         .willReturn(Optional.of(destination));
 
-    transferService.transferMoney(1, 2, new BigDecimal(100));
+    transferService.transferMoney(
+            sender.getId(),
+            destination.getId(),
+            new BigDecimal(100));
 
-    verify(accountRepository).changeAmount(1, new BigDecimal(900));
-    verify(accountRepository).changeAmount(2, new BigDecimal(1100));
+    verify(accountRepository).changeAmount(sender.getId(), new BigDecimal(900));
+    verify(accountRepository).changeAmount(destination.getId(), new BigDecimal(1100));
   }
 
 
