@@ -9,7 +9,7 @@ public class ProjectConfig {
 
     @Bean
     Parrot parrot() {
-        var p = new Parrot();
+        Parrot p = new Parrot();
         p.setName("Koko");
         return p;
     }
