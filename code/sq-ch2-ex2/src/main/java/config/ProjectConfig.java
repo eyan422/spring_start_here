@@ -20,6 +20,11 @@ public class ProjectConfig {
     }
 
     @Bean
+    String world() {
+        return "World";
+    }
+
+    @Bean
     Integer ten() {
         return 10;
     }
